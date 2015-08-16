@@ -1,0 +1,11 @@
+#
+# currency examples
+#
+# see http://finance.yahoo.com/m3?u for more
+#
+^XAD
+^XBP
+^XCD
+^XEU
+^XJY
+^XSF

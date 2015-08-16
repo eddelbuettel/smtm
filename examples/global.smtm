@@ -1,0 +1,18 @@
+#
+# simple example file for stocks from Australia, New Zealand, Germany,
+# France, Britain, Italy, Spain, Sweden, Canada and the US
+#
+# you probably want to look at a particular exchange's page in Yahoo 
+# (e.g. fr.finance.yahoo.com for France) to search for stocks
+#
+TLSCB.AX
+CDL.NZ
+555750.F
+13046.PA
+BPA.L
+OL.MI
+TEF.MC
+VOLV-A.ST
+BCE.TO
+T
+

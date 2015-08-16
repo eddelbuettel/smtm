@@ -1,0 +1,16 @@
+#
+# smtm example file with several stock market indices from around the world 
+# it appears that several of these are in fact updated in real time
+#
+# use http://finance.yahoo.com/l to search for other symbols
+#
+^DJI::0::0:0
+^EUN::0::0:0
+^FCHI::0::0:0
+^FTSE::0::0:0
+^GDAXI::0::0:0
+^HSI::0::0:0
+^IXIC::0::0:0
+^N225::0::0:0
+^SPX::0::0:0
+^TSE::0::0:0

@@ -1,0 +1,581 @@
+smtm (1.6.10) unstable; urgency=low
+
+  * Bug fix release to accommodate Perl 5.10 array changes in two spots
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sun, 25 May 2008 17:48:23 -0500
+
+smtm (1.6.9.1) unstable; urgency=low
+
+  * Debian bug fix release:
+    - debian/rules: Remove bashism			(Closes: #477620)
+    - debian/control: Updated Standards-Version to 3.7.3
+    - debian/copyright: Added parseable Copyright statement
+  
+  * smtm.pl: Update copyright to 2008
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed, 23 Apr 2008 21:33:40 -0500
+
+smtm (1.6.9) unstable; urgency=low
+
+  * Bug fix / update release:  Updated chart URL at Yahoo!
+  
+  * Debian updates:
+    - Standards-Version: increased to 3.7.2
+    - debian/compat created, debhelper Build-Depends updated
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon, 10 Sep 2007 21:30:51 -0500
+
+smtm (1.6.8) unstable; urgency=low
+
+  * Really apply the change to Depends: and not only Build-Depends:
+  * debian/control: Remove Depends: on libtk-png-perl, but qualify Depends:
+    on perl-tk to be perl-tk (>= 1:804.000)
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri, 20 Jan 2006 21:39:36 -0600
+
+smtm (1.6.7) unstable; urgency=low
+
+  * Debian-only bug fix release: We no longer need to Depends: libtk-png-perl
+    as newer perl-tk packages include the PNG graph functionality
+  * debian/control: Remove Depends: on libtk-png-perl, but qualify Depends:
+    on perl-tk to be perl-tk (>= 1:804.000)
+
+  * debian/control: Upgraded to Standards-Version: 3.6.2
+  * debian/rules: Set DH_COMPAT=4
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri, 20 Jan 2006 20:54:51 -0600
+
+smtm (1.6.6) unstable; urgency=low
+
+  * Bug fix release:
+  
+    - [smtm] Switch to using Tk::PNG to display png charts as Yahoo no longer
+      ships gif files, and Tk by default cannot deal with PNG
+ 
+    - [smtm] Updated documentation a little bit
+  
+    - [smtm] Use DBK.DE as symbol in the example portfolio
+  
+    - [Makefile.PL, README] Mention the new Tk::PNG requirement
+  
+    - [debian/control] Add libtk-png-perl to Depends
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sun, 15 May 2005 22:34:33 -0500
+
+smtm (1.6.5) unstable; urgency=low
+
+  * Bug fix release:
+  
+    - [smtm] Make chart updates in gallery mode more robust to the possibility
+      of windows having been closed by the user (Closes: #261806)
+
+    - [smtm] Make code yet more robust to irregular data from Yahoo!
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue,  3 Aug 2004 21:52:29 -0500
+
+smtm (1.6.4) unstable; urgency=low
+
+  * Debian-only bug fix release: Needed explicit Depends on libdate-manip-perl
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri,  4 Jun 2004 07:50:42 -0500
+
+smtm (1.6.3) unstable; urgency=low
+
+  * Bug fix release:
+
+    - [smtm] Fix main window resizing bug following 'edit_stock()' is called
+      (via the middle-mouse button).  (Closes: #241777)
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Sat,  3 Apr 2004 10:18:08 -0600
+
+smtm (1.6.2) unstable; urgency=low
+
+  * Minor release with new feature
+
+    - The 'show_details' function (bound to Button-1) now displays absolute
+      profit or loss (converted to local currency as well). Thanks to Rober
+      A. Schmied for the patch to which we only added the FX bit.
+  
+   -  Percentage returns will not be annualized for positions held less 
+      than year, also due to Robert A. Schmied.
+  
+  * Bug fixes
+  
+    - Gallery mode works again after the innocent-looking call resizable(0,0) 
+      has been removed in the view_image function.
+  
+    - Resizable(0,0) calls added in other functions. 
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed, 17 Mar 2004 22:06:00 -0600
+
+smtm (1.6.1) unstable; urgency=low
+
+  * Bug fix release:
+    
+    - The 'show_details' function (bound to Button-1) now displays correct
+      information on dividend date, amount and yields. Display of market
+      capitalization was also improved. That to Robert A. Schmied for 
+      pointing out the initial problem, and for supplying a patch.
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue,  9 Mar 2004 21:15:35 -0600
+
+smtm (1.6.0) unstable; urgency=low
+
+  * New major release:
+  
+    - In 'gallery' mode, smtm now updates chart windows along with the 
+      normal data allowing for automatically updated intra-daily or
+      intra-weekly charts (longer horizons are updated less frequently
+      than daily at Yahoo!). Gallery mode can be launched either via
+      the command-line option '--gallery', or via the Chart->Gallery
+      menu entry.
+  
+    - Small updates to documentation
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue,  6 Jan 2004 20:38:16 -0600
+
+smtm (1.5.6) unstable; urgency=low
+
+  * Bug fix release:
+  
+    - smtm: correct small error where defensive assignment of number of
+      share was not used
+    
+    - smtm: use pack(-fill ...) throughtout, not pack(fill => ...), as this
+      seems to trip up some 5.8.* versions of Perl. Thanks to Bruce Bowler
+      for reporting this
+  
+    - smtm: use LWP::UserAgent->new(), not RequestAgent->new(), as this seems
+      to trip up some ActiveState version. Thanks to Chris Eidem and others
+      for reporting this.
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed, 15 Oct 2003 20:47:06 -0500
+
+smtm (1.5.5) unstable; urgency=low
+
+  * Bug fix release:
+  
+    - smtm: Chart images are no longer saved to a tempfile, but rather 
+      passed directly (in base64 encoding) to the Photo widget
+    
+    - smtm: The Photo widget is now deleted on <destroy> plugging a
+      memory hole
+  
+    - Makefile.PL: Depend on MIME::Base64
+  
+    - debian/control: Depends: on libmime-base64-perl | perl (>= 5.8.0)
+      [ MIME::Base64 is a package with perl 5.6.*, but included in 5.8.* ]
+  
+    - t/use?.t: Added to see if Finance::YahooQuote and Tk can be loaded.
+  
+    - debian/control: Added Build-Depends for test
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sun,  4 May 2003 16:10:51 -0500
+
+smtm (1.5.4) unstable; urgency=low
+
+  * Bug fix release:
+  
+    - Cross-Currency symbols like 'GBPEUR=X' now load from smtm rc files
+
+  * Minor new feature added:
+   
+    - 'Suspend update' option added to GUI
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sun, 27 Apr 2003 07:59:29 -0500
+
+smtm (1.5.3) unstable; urgency=low
+
+  * Bug fix release with the following code changes:
+    
+    - Fixed a display bug in add_stock and edit_stock GUI functions
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon,  6 Jan 2003 21:49:35 -0600
+
+smtm (1.5.2) unstable; urgency=low
+
+  * New minor release with the following code changes:
+  
+    - Quote information code has been outsourced to Finance::YahooQuote
+      now that we added the extra proxy logic (that was in smtm) into
+      YahooQuote. Smtm requires Finance::YahooQuote 0.18 or higher.
+  
+    - Small code cleanup for program initialization.
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu, 26 Dec 2002 19:27:00 -0600
+
+smtm (1.5.1) unstable; urgency=low
+
+  * Bug fix release with the following code changes
+    
+    - Test for a few more non-numeric arguments before attempting to
+      actually do numeri operations, this was mostly for the new columns
+      introduced in 1.5.0
+
+    - Applied small patch by Cord Beerman to suppress a Perl 5.8.0 gripe
+      (Closes: #161210)
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed, 25 Sep 2002 21:39:17 -0500
+
+smtm (1.5.0) unstable; urgency=low
+
+  * New minor release with the following code changes:
+  
+    - New display columns and sort options for earnings, p/e ratio,
+      dividend yields and market capitalization (Closes: #151155)
+    
+    - New sort option "file order" for display as in the .smtm file
+      which allows for thematic grouping of stocks and indices. Thanks 
+      to Yin Zhou for a very nice patch (though several changes were
+      still made) as well as most of the content of the new example
+      file indices.smtm
+  
+    - Updated documentation accordingly
+  
+    - First upload to the scripts section of CPAN required a few 
+      additional entries to the POD documentation
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue,  6 Aug 2002 22:34:35 -0500
+
+smtm (1.4.0) unstable; urgency=low
+
+  * New release with the following code changes:
+
+    - generalised country support: as Yahoo! now appears to serve
+      all world regions from the core servers, we no longer have to
+      bucket for different global regions -- the net effect is that
+      we should now have global coverage
+
+    - took initial patch by Cord Beerman to cope better with bad
+      Yahoo! data but made the patch more concise (Closes: #151149)
+  
+    - minor documentation updates
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu, 27 Jun 2002 22:36:00 -0500
+
+smtm (1.3.0) unstable; urgency=low
+
+  * New release with the following code changes:
+
+    - completely rewritten charting part now supporting all of
+      the available charts options at Yahoo! Finance:
+      o eight different chart lengths from intra-day to max. years
+      o three different chart sizes
+      o three different chart styles: line, bar and candle
+      o any combination of six different moving average timeframes 
+      o any combination of six exponential moving average timeframes 
+      o six different technical analysis charts
+      o volume, bollinger bands and parabolic sar
+      o as well as relative comparison to any other plot symbols
+  
+    - new "chart" menu entry regrouping all available chart options
+  
+    - "gallery" command to plot `a gallery' of the currently selected 
+      chart type at once for all currently followed stocks
+  
+    - rewrite of option handling, now using two hashes for general options
+      and chart options, as well as the resource file reading and writing
+      to support all the new chart options
+  
+    - updated default portfolio
+  
+    - updated documentation
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Sun, 14 Apr 2002 22:22:56 -0500
+
+smtm (1.2.4) unstable; urgency=low
+
+  * Bug fix release with the following code changes
+    - Yahoo! changed chart URLs for charts other than intraday or weekly; 
+      smtm code corrected. Thanks to David Talmage for the heads-up
+    - Added 'six month' and 'max years' chart data options
+    - Updated help texts for charts
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon, 11 Mar 2002 22:10:12 -0600
+
+smtm (1.2.3) unstable; urgency=low
+
+  * New release with the following code change
+    - new optional display column 'drawdown' with percentage decrease
+      relativ to the 52week high
+    - new sort option drawdown
+    - small documentation updates and corrections
+  * debian/control: Spelling correction (Closes: #125366)
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue, 15 Jan 2002 20:26:15 -0600
+
+smtm (1.2.2) unstable; urgency=low
+
+  * Bug fix release with the following code changes
+    - Yahoo! Europe switched to using ";" as field sep, and "," for
+      decimals, added patch to transform this 
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu,  2 Aug 2001 21:38:40 -0500
+
+smtm (1.2.1) unstable; urgency=low
+
+  * Bug fix release with the following code changes
+    - consistent use of net position change 
+    - fixed small bug in display of short position
+    - examples/worldindices.smtm: Added ^EUN 
+    - some editing cleanup
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon,  9 Jul 2001 21:52:07 -0500
+
+smtm (1.2.0) unstable; urgency=low
+
+  * New release with the following code changes
+    - added support for options (extension .X on Yahoo! Finance)
+    - corrected return calculating for short positions
+    - added several new example files: currencies, global, mutualfunds,
+      options and worldindices
+    - alphabetical name sort in case of ties when sorting by returns
+    - more tests on missing return data, does not cover everything though
+    - use different Yahoo! URL for German stocks
+    - smaller default font
+  * debian/control: Upgraded Standards-Version
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue, 22 May 2001 22:04:58 -0500
+
+smtm (1.1.2) unstable; urgency=low
+
+  * New release with the following code changes
+    - much better support for the Asian 'Tiger' countries Singapore,
+      HongKong, Thailand, Taiwan, ... as well as Australia, New Zealand
+      (thanks to Kwok Chern Yue for the initial patch)
+    - more information retrieved and displayed for European stocks
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue, 18 Jul 2000 23:41:49 -0400
+
+smtm (1.1.1) unstable; urgency=low
+
+  * Bug fix release
+  * Corrected small display snafu in details window
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu, 15 Jun 2000 21:30:20 -0400
+
+smtm (1.1.0) unstable; urgency=low
+
+  * New release with following code changes
+    - for a given stock, multiple positions can now be tracked which
+      answers to the single most frequent feature request
+      (thanks to James Fidell for the inital patch)
+    - European stocks can now show intra-day and weekly charts
+      (thanks to Patrick Koppen for the initial patch)
+    - Australian/New Zealand stocks now show more details
+    - corrected error in European price verification heuristic
+    - corrected bad modes on ~/.smtm directory creation
+      (thanks to Eduardo Pérez Ureta for pointing this out)
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed,  3 May 2000 22:03:58 -0400
+
+smtm (1.0.3) unstable; urgency=low
+
+  * New release with the following code changes
+    - more robust splitting of .csv data by using quotewords() 
+      from the Text::ParseWords modules
+    - for UK shares, switched back to UK server
+    - UK server now provides more info, so we use it
+    - Australia server now supplies charts, so we use them
+    - if needed, provide a default timezone for the other OS
+       
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed, 26 Apr 2000 22:55:30 -0400
+
+smtm (1.0.2) unstable; urgency=low
+
+  * Changed to recognise .OB as a North American exchange so that the over
+    the counter bulletin board (OTC BB) can be followed
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed,  5 Apr 2000 20:56:34 -0400
+
+smtm (1.0.1) unstable; urgency=low
+
+  * Corrected variable assignment in get_firewall_id so that we actually
+    keep the firewall id. Thought I had fixed this ages ago...
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu, 23 Mar 2000 20:19:25 -0500
+
+smtm (1.0.0) unstable; urgency=low
+
+  * New release with the following code changes
+    o uses different server for European quotes 
+      - we now get company names along with price data
+      - new server appears to be more reliable as well
+    o displayed length of stock name now has an upper limit
+    o changed File->Exit menu shortcut to 'Alt-f x'
+    o also changed a few Edit menu shortcuts
+    o added Caldera to the default portfolio
+    o a few small display enhancements and corrections
+  * Changes from a (modified) patch by Mark Gelinas 
+    o unavailable charts now signaled with error window
+    o purchase date and price information is now saved 
+    o column selection properly init'ed from conffile (Closes: #60337)
+    o corrected a short cut key for sort and chart menu
+    o added purchase prices and dates to default portfolio
+  * Changes from a (modified) patch by Mark Gelinas 
+    o new option --percent, as well as a new checkbutton, to switch
+      between basispoint and percent display of relative performance
+    o modified --help display and pod documentation accordingly
+  * debian/menu: Added as supplied by Dan Willet
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue, 21 Mar 2000 21:44:27 -0500
+
+smtm (0.9.9) unstable; urgency=low
+
+  * New release with the following code changes
+    o display routine enhanced once more:
+      - any column can now be turned on or off for the display
+      - new 'header' row with column labels
+      - new columns volume, holding period and annualised return
+    o purchase date and price information added to per-stock info
+    o new file load / save windows using the default Tk widgets
+      - use a default directory ~/.smtm for SMTM files
+    o new 'Edit Stock' window available with middle mouse button
+    o data sanity check added for European quotes 
+      - prevent the 'dropped decimal point' misfeatures
+      - if current price > day_high, set to yesterday + change
+    o data fields are pre-initialised before data retrieval
+      - if Yahoo! data is unavailable, no unintialised data encountered
+      - this makes the European site more reliable
+    o improved 'Add Stock' window with much cleaner layout
+    o improved 'Delete Stock' window with stock name instead of symbol 
+    o improved 'Firewall Id' window with cleaner layout
+    o new sort options volume, holding period and annualised return
+    o three additional fields displayed in 'details window'
+    o simpler and more compact menu structure
+    o firewall info retrieved earlier, if needed
+    o balloon help over display buttons
+  * debian/control: Added Build-Depends
+  * debian/control: Added Depends: on libdate-manip-perl
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon, 28 Feb 2000 22:44:49 -0500
+
+smtm (0.9.1) unstable; urgency=low
+
+  * New release with the following code changes
+    - applied patch by Hamish Moffatt for stocks from Australia + New Zealand
+    - optional share names again work for US/Canada 
+    - if unset, set $HOME to C:/TEMP under Win??
+    - Makefile uses -D to create the $mandir if need be
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sat, 29 Jan 2000 11:56:13 -0500
+
+smtm (0.9.0) frozen unstable; urgency=low
+
+  * New release with the following code changes
+    - Rewritten display routines so that each column now uses the
+      optimial, i.e. minimal, column size (Closes: #55397)
+    - Added sorting options for different sorting criteria
+    - European shares are no longer in a distinct block but mixed with the 
+      North American ones and consistently sorted
+    - More discrete window title with relative basispoint change 
+    - Uppercasing of the symbol cleaned up, `BRKa' now works
+    - Empty lines are now allowed in ~/.smtmrc 
+    - Added a BUGS file to the distribution set
+    - More code cleanups
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu, 20 Jan 2000 20:59:12 -0500
+
+smtm (0.8.3) unstable; urgency=low
+
+  * New release with the following code changes:
+    - Details window now also reports number of shares held, daily change
+      (in local currency) and total position value (in local currency)
+    - Delete temporary file for chart data 
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue, 11 Jan 2000 18:59:55 -0500
+
+smtm (0.8.2) unstable; urgency=low
+
+  * New release with the following code changes:
+    - Reverted the change made in 0.7.0 and use destroy(), not withdraw()
+      as the latter does not release the memory used
+    - New option `--nookbutton' to suppress the `Ok' button on subordinate
+      windows and close on left-mouse click instead, default behaviour is
+      the initial smtm behaviour
+    - New option `--timeout len' to set the timeout used with
+      libwww-perl's UserAgent
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed, 22 Dec 1999 15:28:13 -0500
+
+smtm (0.8.1) unstable; urgency=low
+
+  * Do not save the firewall info in the resource file as it
+    might contain a secure password
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sun, 19 Dec 1999 20:50:02 -0500
+
+smtm (0.8.0) unstable; urgency=low
+
+  * New release with the following code changes:
+    - Charts are now displayed upon right-mouse click
+    - Chart type can be selected in a new menu, or on the cmd line
+    - New option for sort by intra-day percentage change
+    - New menu for immediate screen update
+    - Chart and details window now close on mouse click
+    - Also set iconname() with title() information
+    - Also set activeforeground to red for losers
+    - Selected options are also saved with stocks in File->Save
+    - Version number shown in --help and Help->Manual
+    - Version number automatically updated from debian/rules
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Sat, 18 Dec 1999 21:58:45 -0500
+
+smtm (0.7.0) unstable; urgency=low
+
+  * New release with the following code changes:
+    - Added support for simple proxy firewalls via --proxy http://1.2.3.4:80
+    - Added support for account+password firewalls: info can be specified 
+      via cmd-line args or in a new "account / password" window
+    - Added test for previous_close != 0 to avoid potential division by zero
+    - Replaced destroy() with withdraw() for closing windows, seems to avoid
+      triggering a segfault error which is presumably inside perl/tk 
+    - Renamed option variables for clarity (yeah right)
+    - Added LNUX to default portfolio
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon, 13 Dec 1999 21:19:39 -0500
+
+smtm (0.6.0) unstable; urgency=low
+
+  * New release with the following code changes:
+    - Allow for additional specification of number of shares held as well
+      as the (ISO) cross-currency pair to map into domestic monies
+    - Use this info to display net portfolio gain or loss in window title
+    - Additional option --wide, and menu selector, for `wide' display with
+      per share gain or loss and total holdings
+    - menus now have underlined shortcuts for ALT-x
+    - more code cleanup
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue,  7 Dec 1999 21:21:14 -0500
+
+smtm (0.5.2) unstable; urgency=low
+
+  * New release with the following code changes:
+    - Some cleanup of global data structures
+    - Small logic fix at startup with no file or args
+    - Now allows for name as optional argument in rc file, ie 
+      instead of writing `BT.A.L' you can now write `BT.A.L:BRIT TELECOM'
+      and the optional name will be displayed to overcome the fact that
+      Yahoo! UK does not supply one
+    - The optional name is preserved when saving as well, no support yet
+      to specify it in the `Add Stock' window
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu,  2 Dec 1999 23:41:31 -0500
+
+smtm (0.5.1) unstable; urgency=low
+
+  * New release with the following code changes:
+    - New `Details' window opens when clicking on a stock
+    - Added firewall proxy support via env.vars thanks to Behan Webster
+    - Additional menu to set delay between data updates
+    - Added labels to selection and deletion windows 
+    - Corrected window size for license window
+    - Main display uses one digit more for price and price change
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Wed,  1 Dec 1999 22:09:06 -0500
+
+smtm (0.5.0) unstable; urgency=low
+
+  * Initial Debian (and upstream) release.
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri, 26 Nov 1999 20:57:11 -0500

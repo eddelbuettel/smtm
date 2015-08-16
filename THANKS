@@ -1,0 +1,44 @@
+Behan Webster	     for a one-line patch with proxy support
+Chris Steigies       for pointing out a div-by-zero error as well as other
+                     errors (which often were server related)
+Anibal Acero         for another one-line patch with proxy support
+Lars Steinke         for bugging me into adding firewall id/passwd support
+Koos Pol	     for suggesting to uppercase the symbol and to add 
+                     version info
+Brian Campbell       for a patch with different UI configs I mostly adapted, 
+                     as well as good discussion on UI preferences
+Joey Hess            for bugging me to rewrite the display
+Tom Fawcett          for an enhancement to the Makefile
+Hamish Moffatt       for the Australian / New Zealand patch
+Pierre Abbat         for a note on (bare-bones) metals price info on Yahoo
+Mark Gelinas	     for a very thorough patch that moved things towards 1.0.0
+Dan Willet           for supplying a Debian menu file
+Owen Wild	     for a patch with --percent support
+James Fidell	     for a thorough patch to allow multiple positions for
+                     a given stock (single most popular feature request)
+Ruben Schattevoy     for a patch to split .csv better (but we use another 
+                     module anyway)
+Eduardo Pérez Ureta  for pointing out that the mkdir mode was off
+Patrick Koppen       for the initial patch for European charts
+Mattia Monga	     for pointing out that Date::Manip 5:38 was breaking smtm
+Dwight Johnson       for pointing out that Date::Manip 5:38 was breaking smtm
+Sullivan Beck	     for accepting my Date::Manip patch upstream :)
+Kwok Chern Yue       for the initial patch for better Asian support
+David Talmage	     for pointing out that most Yahoo! chart URLs were broken
+OGRO74@aol.com	     for asking for support for Mexican quotes which lead to 
+		     largeish revision that does away with country restrictions
+Cord Beerman	     for an initial patch to cope better with bad Yahoo! data
+Yin Zhou	     for a (modified) patch to sort as per .smtm file order
+Paul Brossier	     for pointing out that fx symbols as GBPEUR=X didn't load
+Chris Eidem	     for reporting the LWP::UserAgent issue
+Bruce Bowler	     for suggesting to tighten use of pack(-fill, not pack(fill
+Robert A. Schmied    for pointing out the error in 'show_details', and a
+                     patch that fixed a decent part of it, and then some 
+                     more patches :)
+Bruce Bowler, Michael Labhard, Thomas Chiverton, "Jim", Russ Herrold
+                     for the heads-up about Yahoo!'s gif-to-png change
+Michael Kurlin, Clinton R Lambe, Ian Seow
+	             for noticing the required change in Yahoo!'s chart url
+
+and all the kind folks who dropped a line to either report a bug, and/or 
+say that they liked the program... 

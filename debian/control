@@ -1,0 +1,28 @@
+Source: smtm
+Section: misc
+Priority: optional
+Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Standards-Version: 3.7.3
+Build-Depends: debhelper (>= 5.0)
+Build-Depends-Indep: libwww-perl, libdate-manip-perl, libfinance-yahooquote-perl (>= 0.18), perl-tk (>= 1:804.000)
+
+Package: smtm
+Architecture: all
+Depends: ${perl:Depends}, libdate-manip-perl, libmime-base64-perl, perl-tk (>= 1:804.000), libfinance-yahooquote-perl (>= 0.18)
+Description: Show Me The Money is a configurable Perl/Tk stock ticker program
+ smtm, which is a not overly clever acronym for Show Me The Money, is a 
+ simple stock ticker and charting application. It creates and automatically 
+ updates a window with stock quotes from Yahoo! Finance, as well as optional
+ charts from Yahoo! Finance. 
+ .
+ smtm is fully configurable -- it can display the stock symbol and the full
+ name of the company, the price change, the percentage change, the volume
+ traded, the profit or loss, the value of the holding, the length of the
+ holding period, annualised percentage returns and more. The display can be 
+ sorted on almost any of the columns.  Losers are flagged in red. smtm can be
+ used for most global stock symbols, North American mutual funds and options,
+ currencies and some commodities -- anything supported Yahoo! Finance.
+ .
+ Stock quotes are normally delayed, 15 minutes for NASDAQ and 20
+ minutes otherwise, see Yahoo! Finance for details.
+

@@ -1,0 +1,10 @@
+#
+# a simple Telecom stocks example
+# all returns are translated into Canadian dollars
+#
+13330.PA::10:EURCAD:0:0
+555750.F::10:EURCAD:0:0
+TEF.MC::10:EURCAD:0.0
+BCE.TO::10::0:0
+BT.A.L::10:GBPCAD:0:0
+T::10:USDCAD:0:0

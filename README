@@ -1,0 +1,107 @@
+
+	     smtm --- A global stock ticker for X11 and Windoze
+
+
+1. Introduction
+   
+   smtm, which is a not overly clever acronym for Show Me The Money, is a
+   financial ticker and portfolio application for quotes from exchanges
+   around the world (provided they are carried on Yahoo!). It creates and 
+   automatically updates a window with quotes from Yahoo! Finance. It can 
+   also display the entire variety of charts available at Yahoo! Finance. 
+   When called with one or several symbols, it displays these selected
+   stocks. When smtm is called without arguments, it reads the symbols
+   tickers from a file, by default ~/.smtmrc. This file can be created
+   explicitly by calling the Save option from the File menu. Beyond stocks,
+   smtm can also display currencies (from the Philadephia exchange), US
+   mutual funds, options on US stocks, several precious metals and quite
+   possibly more; see the Yahoo! Finance website for full information. 
+
+
+2. How to get started
+   
+   Built using Perl/Tk it requires at least the following modules
+   
+   	  Date::Manip
+	  Finance::YahooQuote
+	  LWP::UserAgent
+	  MIME::Base64
+	  HTML::Parser
+	  Tk	
+          Tk::PNG
+
+   all of which are readily available for most Unix variants, Linux
+   distributions and the ActiveState Perl implementation common on win*.
+   
+   Debian users just say 'apt-get install smtm'. 
+
+   For others, and following Perl convention, the installation should work as
+
+         perl Makefile.PL # optionally "perl Makefile.PL verbose"
+         make
+	 make test	  # the tests are somewhat limited	 
+         make install     
+
+   but I do not test this regularly as I install the Debian packages myself.
+   
+
+3. How to use it
+
+   'smtm --help' gives a brief synopis, 'perldoc smtm' shows the full manual 
+   page.  Several options are available and can be set from both a resource
+   file ~/.smtmrc, the command-line and the menus once smtm is running.
+
+   Additional resource files, e.g. for additional portfolios, are available
+   in the examples/ directory of the source distribution.
+
+   But the simplest case is possibly to just supply ticker symbols on the 
+   command-line:  'smtm DELL IBM MSFT'.
+
+
+4. Disclaimer (taken straight from the GPL)
+
+				 NO WARRANTY
+
+     11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
+   FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN
+   OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
+   PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
+   OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS
+   TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE
+   PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,
+   REPAIR OR CORRECTION.
+
+     12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+   WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
+   REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,
+   INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING
+   OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED
+   TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY
+   YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
+   PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
+   POSSIBILITY OF SUCH DAMAGES.
+
+
+   In short: if it breaks, you can keep the pieces.  This is Free Software,
+   use it as you see fit, but don't come running or screaming if it doesn't
+   work as intended. 
+
+
+5. Copyright
+
+   Copyright (C) 1999 - 2007  Dirk Eddelbuettel <edd@debian.org>
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.

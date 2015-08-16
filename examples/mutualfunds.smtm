@@ -1,0 +1,11 @@
+#
+# smtm example file with different US mutual funds
+#
+# use http://finance.yahoo.com/l to search for other symbols
+#
+# default to one-year chart 
+$chart=1
+#
+EMF
+FSPTX
+VFINX

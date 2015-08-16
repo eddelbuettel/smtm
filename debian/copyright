@@ -1,0 +1,16 @@
+This is the Debian GNU/Linux version of the smtm stock ticker program. It
+provides a configurable Perl program to display one or more stock quotes from
+Yahoo! Finance sites.
+
+This package was both written and put together for Debian by Dirk
+Eddelbuettel <edd@debian.org>. The sources can also be obtained from 
+	http://dirk.eddelbuettel.com/code/smtm/
+
+Copyright (C) 1999 - 2008 Dirk Eddelbuettel
+
+License: GPL
+
+On a Debian GNU/Linux systems, the complete text of GNU General Public
+License can be found in the file /usr/share/common-licenses/GPL.
+
+

@@ -1,0 +1,76 @@
+#! /usr/bin/make -f
+#                                                       -*- makefile -*-
+# debian/rules file for the Debian/GNU Linux smtm package
+# Copyright (C) 1999 - 2008 by Dirk Eddelbuettel <edd@debian.org>
+
+package	:= $(shell grep Package debian/control | sed 's/^Package: //')
+version	:= $(shell head -1 debian/changelog | \
+			perl -nle 'm/\S+\s+\((\S+)\)/ && print $$1')
+debtmp	:= $(shell pwd)/debian/$(package)
+
+srcdir  := ../../../progs/perl-tk/smtm
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+update:
+	cp -af	$(srcdir)/smtm.pl 	smtm
+	chmod 0555 smtm
+        # update the $$VERSION field in the perl file 
+	perl -p -i -e \
+		"s/VERSION = \".*\";/VERSION = \""$(version)"\";/" $(package)
+	perl Makefile.PL
+	make dist
+	mv -vf smtm-$(version).tar.gz ..
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+	perl Makefile.PL INSTALLDIRS=vendor
+	$(MAKE)
+	$(MAKE) test
+	pod2html --flush $(package) > $(package).html
+	pod2man          $(package) > $(package).1
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp 
+	-test -f Makefile && $(MAKE) realclean
+	dh_clean pod2html-dircache pod2html-itemcache 
+
+binary-indep: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs		usr/bin usr/share/man/man1
+	$(MAKE) 		install PREFIX=$(debtmp)/usr
+	-rmdir -v		$(debtmp)/usr/lib/perl 	\
+				$(debtmp)/usr/lib/	\
+				$(debtmp)/usr/share/perl5
+	dh_perl	
+	dh_installdocs		smtm.html TODO THANKS BUGS
+	dh_installexamples	examples/*
+	dh_installmenu
+#	dh_installinit
+#	dh_installcron
+#	dh_installmanpages
+#	dh_undocumented
+	dh_installchangelogs	
+	dh_compress
+	dh_fixperms
+#	dh_suidregister
+	dh_installdeb
+	dh_gencontrol
+#	dh_md5sums
+	dh_builddeb
+
+binary-arch: build
+
+source diff:                                                                  
+	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary
+

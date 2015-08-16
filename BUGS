@@ -1,0 +1,12 @@
+
+Closing the stock addition or deletion windows have been reported to
+cause random segmentation violation under Linux. This appears to be a 
+bug in Perl/Tk which will hopefully be solved, or circumvented, soon. 
+This bug does not bite under Solaris, FreeBSD or NT. 
+[ UPDATE: It also seems to have disappeared under Perl 5.6.*. ]
+
+Problems with undefined symbols have been reported under Solaris 2.6 
+when Perl has been compiled with thread support. Using an unthreaded 
+Perl binary under Solaris works. How this problem can be circumvented is
+presently unclear.
+

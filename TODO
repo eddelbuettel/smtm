@@ -1,0 +1,57 @@
+
+ * Keep the information retrieved and have a details window with high/low
+   bid/ask volume .... Would make more sense if Yahoo! UK gave as much detail
+   as Yahoo! NA does.  
+ ==> DONE as of 0.5.1 
+
+ * Maybe not keep the stocks selected simply in @ARGV, but a global hash and
+   also keep a number of shares for each symbol to that we get hard dollar
+   changes for the portfolio 
+ ==> DONE as of 0.6.0
+
+ * By the same token, also store the reference currency. The file format
+   would then be a comma (or whatever) separated list like
+	BT.A.L,100,EUR
+	BCE.TO,200,CAD
+   or maybe use the Yahoo currency ticker?  
+ ==> DONE as of 0.6.0
+
+ * And then again, maybe allow for a text string as well to overcome the 
+   lacking name string when using the non-US site. Ergo:
+        BT.A.L,100,EUR,British Telecom
+ ==> DONE as of 0.5.2
+
+ * User request: Right-mouse click on button to launch browser on Yahoo page 
+     ==> maybe, but Yahoo UK doesn't show a chart anyway
+ ==> DONE as of 0.8.0,  didn't even need an external browser. Perl/Tk rules.
+
+ * User request: Allow for purchase price to show total return
+     ==> needed in a stock ticker ?
+         should also allow for purchase date for annualised return
+ ==> DONE as of 0.9.9
+
+ *  User request: Do not update between 9 and 5, say
+     ==> conflict with local timezones in NA and, say European trading hours
+         maybe add cmd line option for an expression that will be eval'ed ?
+
+ *  Timeout variable
+ ==> DONE as of 0.8.2
+
+ *  Button preference variable
+ ==> DONE as of 0.8.2
+
+ *  The "stock detail" window should include how much it contributed to net
+    loss/gain for the day, if appropriate, along with all "other" information
+    like nb of shares, position value etc. 
+ ==> as of 0.8.3, provides nb of shares, position value and change value
+
+ *  Would be nice to reorganize smtm so that several windows could be updated
+    from one session, rather than running several Perl sessions
+
+ *  Would be nice to have a few (intra-day) chart windows update automatically
+
+ *  (From a discussion with Jon Solworth) Would be nice to set the background
+    of individual entries to distinguish "thematically"
+
+ *  Should drop the ad-hoc configurarion reading/writing code and probably
+    use one of the Config:: modules from CPAN
