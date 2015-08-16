@@ -6,11 +6,11 @@ This package was both written and put together for Debian by Dirk
 Eddelbuettel <edd@debian.org>. The sources can also be obtained from 
 	http://dirk.eddelbuettel.com/code/smtm/
 
-Copyright (C) 1999 - 2008 Dirk Eddelbuettel
+Copyright (C) 1999 - 2015  Dirk Eddelbuettel
 
-License: GPL
+License: GPL-2
 
 On a Debian GNU/Linux systems, the complete text of GNU General Public
-License can be found in the file /usr/share/common-licenses/GPL.
+License (version 2) can be found in the file /usr/share/common-licenses/GPL-2.
 
 

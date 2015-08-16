@@ -1,7 +1,7 @@
 #! /usr/bin/make -f
 #                                                       -*- makefile -*-
 # debian/rules file for the Debian/GNU Linux smtm package
-# Copyright (C) 1999 - 2008 by Dirk Eddelbuettel <edd@debian.org>
+# Copyright (C) 1999 - 2015 by Dirk Eddelbuettel <edd@debian.org>
 
 package	:= $(shell grep Package debian/control | sed 's/^Package: //')
 version	:= $(shell head -1 debian/changelog | \
@@ -23,7 +23,9 @@ update:
 	make dist
 	mv -vf smtm-$(version).tar.gz ..
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
 build-stamp:
 	dh_testdir
 	perl Makefile.PL INSTALLDIRS=vendor
@@ -45,10 +47,7 @@ binary-indep: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs		usr/bin usr/share/man/man1
-	$(MAKE) 		install PREFIX=$(debtmp)/usr
-	-rmdir -v		$(debtmp)/usr/lib/perl 	\
-				$(debtmp)/usr/lib/	\
-				$(debtmp)/usr/share/perl5
+	$(MAKE) 		install DESTDIR=$(debtmp)
 	dh_perl	
 	dh_installdocs		smtm.html TODO THANKS BUGS
 	dh_installexamples	examples/*
