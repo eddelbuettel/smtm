@@ -256,7 +256,7 @@ sub menus {			# create the menus
 			 -variable => \$chart{ema}{$ARG});
   }
   my $CasTA = $M[2]->cascade(-label => 'Te~chnical Analysis');
-  # see http://help.yahoo.com/help/us/fin/chart/chart-12.html
+  # see https://help.yahoo.com/help/us/fin/chart/chart-12.html
   my %ta_text = ('m26_12_9'   => 'MACD (MA Conv./Divergence)', 
 		 'f14'        => 'MFI (Money Flow)',
 		 'p12'        => 'ROC (Rate of Change)',
@@ -977,12 +977,11 @@ sub charturl {			# initially (almost) verbatim from Dj's
 
   my $len = $chart{length};
   if ($len =~ m/t/o) {		# if 'm' for thumbnail
-    $url = "http://ichart.yahoo.com/v?s=$symbol"; ## really small
+    $url = "https://ichart.yahoo.com/v?s=$symbol"; ## really small
   } elsif ($len =~ m/(b|w)/o) {	# if 'b' or 'w' for intra-day or 5 day
     ## next line no longer needed, IIRC we once used i for what we now use b
     ##$len = 'b' if $len eq 'i';	# intraday chart uses Yahoo! code 'b'
-    $url = "http://ichart.yahoo.com/$len?s=$symbol";
-    #$url = "http://ichart.yahoo.com/v?s=$symbol"; ## really small
+    $url = "https://ichart.yahoo.com/$len?s=$symbol"; ## really small
   } else {			# everything else, ie three month onwards
     $len .= 'y' if $len=~ m/(1|2|5|m)/o;# code for year is '1y' ... 'my'
     $len .= 'm' if $len =~ m/(3|6)/o;	# code for month is '3m' or '6m'
@@ -1000,8 +999,7 @@ sub charturl {			# initially (almost) verbatim from Dj's
     foreach (keys %{$chart{technical}}) {	# for all tech. analysis opt.
       $pane .= ",$ARG" if $chart{technical}{$ARG};# add on new pane if selected
     }
-    #$url = "http://cchart.yimg.com/z?" . 
-    $url = "http://ichart.yimg.com/z?" . 
+    $url = "https://ichart.yimg.com/z?" . 
       "&s=$symbol&p=$params&t=$len&c=$chart{comparison}" .
       "&l=$log&z=$chart{size}&q=$chart{style}&a=$pane";
   }
